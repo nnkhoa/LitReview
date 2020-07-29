@@ -13,4 +13,8 @@ Sentiment Analysis, News & Blogs, Named Entity, Natural Language Processing.
 
 # General Idea
 
-- Custom Sentiment Dictionary: 
+- Custom Sentiment Dictionary: based on a small list of candidate seed lists of positive and negative words, the approach is to expand it to a complete sentiment dictionary via path-based analysis of synonyms and antonyms in WordNet. Hop counts from seeded words will alter the sentiment value, hence modify the polarity strength of candidate terms and remove ambiguous terms.
+
+- Sentiment Index Formulation: Sentiment Term Juxtaposition with Entities and Frequency-weighted interpolation with world happiness level to contruct a statistical index reflect the significance of sentiment juxtaposition
+
+- 
