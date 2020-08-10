@@ -29,4 +29,10 @@ Sentiment Analysis, News & Blogs, Named Entity, Natural Language Processing.
 
     * Path-based Analysis:
 
-        + 
+        + After assigning polarity (postive/negative) to a candidate word, synonyms will inherit such polarity from the parent while antonym will get the opposite polarity. For each candidate word, the further it is to the seeded word (in this case, depth of the graph), the less significant the sentiment of the word will be. The significance score descrease exponentially based on the depth: score (W) = 1/c^d where c is a constant > 1 and d is the depth of the word compared to the seeded word. The final score will be the sum of all scores accross all paths.
+
+        + It is theorized in the paper that paths that alter the polarity of a word between positive and negative (named as flip by the author) are more prone to generate incorrect result. Hence, the algorithm is set to run in 2 iterations: First iteration is executed as described above to calculate the preliminary score for each word, while the second iteration re-enumerate all the path to calculate the number of flips. Less flips means more reliable result. Hence only words that have the number of flips within a pre-determined threshold will be kept.
+
+        + To fetch synonyms and antonyms, the author used WordNet, which rank such words by sense and the more common sense words are at the top. Hence, only the top ranked word were used in order to increase accuracy
+
+
