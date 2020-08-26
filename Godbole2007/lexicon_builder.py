@@ -1,3 +1,5 @@
+import itertools
+
 from nltk.corpus import wordnet as wn
 from WordGraph import Node, Graph
 
@@ -16,7 +18,7 @@ def get_synonym_antonym(seeded_word):
         for lemma in syn.lemmas():
             sense_key = get_sense_key(lemma.key())
             if sense_key <= 4:
-                if lemma.name() != seeded_word:    
+                if lemma.name() != seeded_word[0]:    
                     synonym.append(lemma.name())
                 if lemma.antonyms():
                     antonym.append(lemma.antonyms()[0].name())
@@ -52,21 +54,36 @@ def get_shortest_distance(candidate_word, seed_word):
 
 def build_attribute(word_list, seed_word, list_type):
     return [(candidate_word, 
-            get_shortest_distance(candidate_word, seed_word[0]),
-            flip_polarity(list_type, seed_word[2])) 
+            flip_polarity(list_type, seed_word[1])) 
                 for candidate_word in word_list]
 
 
-def build_connections(depth, seeded_word_list, connections):
+def build_connections(depth, parent_word_list, connections, seeded_word_list):
     
-    for word in seeded_word_list:
-        synonym, antonym = get_synonym_antonym(word)
-        connections.extend((word, syno) for syno in synonym)
-        connections.extend((word, anto) for anto in antonym)
+    for word in parent_word_list:
+        synonyms, antonyms = get_synonym_antonym(word)
+
+        connections.extend((word, syno) for syno in synonyms if (syno, word) not in connections)
+        connections.extend((word, anto) for anto in antonyms if (anto, word) not in connections)
 
         if depth < 2:
-            build_connections(depth+1, synonym, connections)
-            build_connections(depth+1, antonym, connections)
+            build_connections(depth+1, synonyms, connections, seeded_word_list)
+            build_connections(depth+1, antonyms, connections, seeded_word_list)
         
     if depth == 0:
+        connections = list(set(connections))
+        seeded_pair = itertools.combinations(seeded_word_list, 2)
+        
+        for pair in seeded_pair:
+            connections.remove(pair)
+            # connections.remove(pair[::-1])
+
         return connections
+
+
+def check_duplicate_seed(word, seeded_word_list):
+    for seeded_word in seeded_word_list:
+        if word[0] in seeded_word:
+            return True
+    
+    return False
