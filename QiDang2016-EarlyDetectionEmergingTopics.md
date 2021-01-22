@@ -37,7 +37,7 @@ Experiments was done on real data (Sina micro-blogging), in which concluded that
 
 		+ textual data: tweet's ID, time created, tweet content, retweet tag(to recognize retweeting relationship between users)
 
-	* No standard dataset, hence manually labeled with the help of search engine, using keywords as indicator wheter a tweet is talking about a topic or not
+	* No standard dataset, hence manually labeled with the help of search engine, using keywords as indicator whether a tweet is talking about a topic or not
 
 	* 54 emerging topics (topics will develop into a large scale and last for hours), 50 non-emerging (could not last for a long time since their sudden apprearances)
 
