@@ -7,12 +7,46 @@ Unlike previous attempts to detect emerging trends in research papers through bi
 
 ## Problem Addressed/Main Contribution
 
+* Citation counting has many limitations: massive delay in updating references & citations, lack of content and context analysis
 
+* Topic modeling's weakness in detecting pair-wise association of keywords
+
+* Using temporal techniques to leverage word embedding, hence addressing forementioned limitations
 
 ## Dataset
 
+* NIPS dataset
+
+    + Neural Information Processing Systems conference papers
+
+    + 7241 entries in 30 years (1987-2017), publicly available on Kaggle
+
+    + meta-data: id, title, event-type, pdf, name, abstract, content
+
+* MICCAI dataset
+
+    + Medical Image and Computer Assisted Intervention conference papers
+
+    + 3844 entries in 15 years (2004-2018)
+
 ## Proposed Approach
 
-## Results and Evaluation
+* Preprocessing
+
+    + Language-based: stop words/common academic vocabulary removal, build bag-of-word of unigram and bigram using word2phrase
+
+    + Time-based: divide the corpus into smaller timespan using 2 different paradigms: incremental windows and sliding windows
+
+* Word Embeddings
+
+    + Skip-gram Model
+
+    + Temporal Word Embeddings 
+
+* Similarity computation 
+
+* Post Processing
+
+## Evaluation and Results
 
 
