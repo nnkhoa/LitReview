@@ -7,7 +7,7 @@ TIme Series, Trend Prediction, Community Detection, Complex Networks
 
 ## Quick Summary
 
-Analysing time series based on its topological features, introducing an algorithm in trend detection for stochastic time series based on community detection and network metrics. Advantages over traditional time series analysis being:
+Analyzing time series based on its topological features, introducing an algorithm in trend detection for stochastic time series based on community detection and network metrics. Advantages over traditional time series analysis being:
 	
 	* Adaptive number of classes with measurable strength
 

@@ -1,9 +1,9 @@
-# Leap2Treand: A Temporal Word Embedding Approach for Instant Detection of Emerging Scientific Trends
+# Leap2Trend: A Temporal Word Embedding Approach for Instant Detection of Emerging Scientific Trends
 # Amna Dridi, Mohamed Medhat Gaber, R. Muhammad Atif Azad, Jagdev Bhogal, 2019
 
-## Quick Sumnmary
+## Quick Summary
 
-Unlike previous attempts to detect emerging trends in research papers through biblography which are known to have problem in timeliness and content analysis, the literature proposed an approach using temporal word embeddings, dubbed as Leap2Trend. Leap2Trend tracks similarities between pairs of keywords overtime which yielded results suggesting the robustness and timeliness characteristics of the method.
+Unlike previous attempts to detect emerging trends in research papers through bibliography which are known to have problem in timeliness and content analysis, the literature proposed an approach using temporal word embeddings, dubbed as Leap2Trend. Leap2Trend tracks similarities between pairs of keywords overtime which yielded results suggesting the robustness and timeliness characteristics of the method.
 
 ## Problem Addressed/Main Contribution
 
@@ -11,7 +11,7 @@ Unlike previous attempts to detect emerging trends in research papers through bi
 
 * Topic modeling's weakness in detecting pair-wise association of keywords
 
-* Using temporal techniques to leverage word embedding, hence addressing forementioned limitations
+* Using temporal techniques to leverage word embedding, hence addressing fore-mentioned limitations
 
 ## Dataset
 
@@ -33,9 +33,9 @@ Unlike previous attempts to detect emerging trends in research papers through bi
 
 * Preprocessing
 
-    + Language-based: stop words/common academic vocabulary removal, build bag-of-word of unigram and bigram using word2phrase
+    + Language-based: stop words/common academic vocabulary removal, build bag-of-word of uni-gram and bi-gram using word2phrase
 
-    + Time-based: divide the corpus into smaller timespan using 2 different paradigms: incremental windows and sliding windows
+    + Time-based: divide the corpus into smaller time span using 2 different paradigms: incremental windows and sliding windows
 
 * Word Embeddings
 
@@ -43,7 +43,7 @@ Unlike previous attempts to detect emerging trends in research papers through bi
 
         - Hyperparameter: Context windows and dimensionality matter
 
-        - Using k-nearest neighbors theory of word vectors to get the most optimal hyperparameters
+        - Using k-nearest neighbors theory of word vectors to get the most optimal hyper-parameters
 
     + Temporal Word Embeddings 
 
@@ -55,13 +55,13 @@ Unlike previous attempts to detect emerging trends in research papers through bi
 
         - Sliding Embeddings:
 
-            + Fixed period length, retrain embedding everytime the window slide and have new vocabulary
+            + Fixed period length, retrain embedding every time the window slide and have new vocabulary
 
 * Similarity computation: 
 
-    + Cosine Similarity between embeddings in each timespan across all corpora
+    + Cosine Similarity between embeddings in each time span across all corpora
 
-    + Same keywords (only top-k keywords for efficiency) are used over all timespan
+    + Same keywords (only top-k keywords for efficiency) are used over all time span
 
 * Post Processing
 

@@ -7,25 +7,25 @@ BERT, siamese network, semantic textual similarity(sts)
 
 ## Quick summary
 
-The author present Setence-BERT, a modification of pretrained BERT network using siamese and triplet network structure to calculate semantic textual similirity between setences. This methods is unsupervised and compared other past approaches, performs extremely faster, experimented on common STS and transfer learning task.
+The author present Sentence-BERT, a modification of pretrained BERT network using siamese and triplet network structure to calculate semantic textual similarity between sentences. This methods is unsupervised and compared other past approaches, performs extremely faster, experimented on common STS and transfer learning task.
 
 ## Main purpose/ Problem addressed
 
-Because BERT use cross-encoder which can generate too many possible combinations between two setences thus is time consuming, the method is clearly unsuitable to identify which pair of setences are similar to each other.
+Because BERT use cross-encoder which can generate too many possible combinations between two sentences thus is time consuming, the method is clearly unsuitable to identify which pair of sentences are similar to each other.
 
-Example: Finding in 10000 setences the pairs that has the highest similarity required 499950 computations, which cost ~65 hours depends on the GPU.  
+Example: Finding in 10000 sentences the pairs that has the highest similarity required 499950 computations, which cost ~65 hours depends on the GPU.  
 
 ## Dataset
 
 * Training data: 
     
-    + SNLI: 570000 setence pair, labeled with contradiction, eintailment and neutral
+    + SNLI: 570000 sentence pair, labeled with contradiction, entailment and neutral
 
-    + Multi-gerne NLI: 430000 setence pairs, wide coverage of gernes
+    + Multi-genre NLI: 430000 sentence pairs, wide coverage of genres
 
 ## Proposed Approach
 
-* After each sentence goes into BERT model, a pooling layer is added to transform them into a fixed sized setence embedding.
+* After each sentence goes into BERT model, a pooling layer is added to transform them into a fixed sized sentence embedding.
 
 * 3-layer siamese network structure: BERT, pooling, and an objective function that depends on the purpose of the task: softmax for classification, cosine-similarity for regression, etc.
 
@@ -37,5 +37,5 @@ Example: Finding in 10000 setences the pairs that has the highest similarity req
 
 * With supervised dataset, the model proved to be better with certain configuration and certain dataset.
 
-* Computational efficiency: with smart batching, SBERT was 55% faster than Universal Setence Encoder. On CPU, smart batching has 89% improvement in speed, while on GPU, 48%
+* Computational efficiency: with smart batching, SBERT was 55% faster than Universal Sentence Encoder. On CPU, smart batching has 89% improvement in speed, while on GPU, 48%
 
