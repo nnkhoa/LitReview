@@ -1,5 +1,5 @@
 # Leap2Treand: A Temporal Word Embedding Approach for Instant Detection of Emerging Scientific Trends
-# Amna Dridi, Mohamed Medhat Gaber, R. Muhammad Atif Azad, Jagdev Bhogal
+# Amna Dridi, Mohamed Medhat Gaber, R. Muhammad Atif Azad, Jagdev Bhogal, 2019
 
 ## Quick Sumnmary
 
@@ -41,11 +41,33 @@ Unlike previous attempts to detect emerging trends in research papers through bi
 
     + Skip-gram Model
 
+        - Hyperparameter: Context windows and dimensionality matter
+
+        - Using k-nearest neighbors theory of word vectors to get the most optimal hyperparameters
+
     + Temporal Word Embeddings 
 
-* Similarity computation 
+        - Incremental Embeddings: 
+        
+            + Update embeddings incrementally on an annual basis
+
+            + 2 different embeddings: Fresh (retrain) and Update (train continuous)
+
+        - Sliding Embeddings:
+
+            + Fixed period length, retrain embedding everytime the window slide and have new vocabulary
+
+* Similarity computation: 
+
+    + Cosine Similarity between embeddings in each timespan across all corpora
+
+    + Same keywords (only top-k keywords for efficiency) are used over all timespan
 
 * Post Processing
+
+    + Ranking: compare similarities 
+
+    + Rank Ascent Identification
 
 ## Evaluation and Results
 
