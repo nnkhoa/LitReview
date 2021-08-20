@@ -65,10 +65,39 @@ Unlike previous attempts to detect emerging trends in research papers through bi
 
 * Post Processing
 
-    + Ranking: compare similarities 
+    + Ranking: compare similarities (ambiguous)
 
-    + Rank Ascent Identification
+    + Rank Ascent Identification: 
+    
+        - compare the differences in ranking of pairs of keywords between time spans to 0 and a threshold
+
+        - if between 0 and threshold, it is considered as a jump in ranking, if more than threshold, it considered as a leap, both indicating fast emerging keywords 
 
 ## Evaluation and Results
 
+* Evaluation: 
+
+    + Gold Standard: 
+
+        - Google Trends hits: compare to the results from query of pair of keywords, for the purpose of verifying ascent captured by Leap2Trend is whether a positive sign which can lead to emerging trend
+
+        - Google Scholar citation: stack the ascents of pairs of keywords extracted by Leap2Trend against the citation count change over time, to find out their correlation 
+    
+    + Evaluation Metric:
+
+        - Ascent Accuracy and Recall: 
+        
+            + Accuracy: fraction of ascent turned into positive slope in Google Trend over total ascent detected 
+
+            + Recall: number of ascent in the gold standard that was correctly detected
+
+        - Ascent Precision: percentage of pair of keywords that ended up with positive slopes to total of pair of keywords in vocabulary
+
+* Results:
+
+    + Regarding Incremental Embeddings, fresh retraining proved to be the better option. However, Sliding Embeddings is the best alternative
+
+    + Results showed that Leap2Trend is able to detect emerging keyword in a timeliness manner
+
+    + Experiment limited in time period (only after 2004 due to Google Trends), scenario (only considered rising, not falling in trends), and field of research (only computer science and bioinformatics)
 
